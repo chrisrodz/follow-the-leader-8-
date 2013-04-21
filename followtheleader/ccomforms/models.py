@@ -1,11 +1,12 @@
-# Since the T02 form is numbered, we decided to name our fields based on those numbers
-# this will allow us to keep better track of each field. The first field is f1 and so on.
-
 from django.db import models
 from django.contrib.auth.models import User
 
 import dbarray
 
+# Model for the T02 form
+# We decided to name our fields based on the
+# numbers on the form itself.
+# Ex. The first field in the form is f1.
 class T02(models.Model):
 
     def __unicode__(self):
@@ -102,3 +103,36 @@ class T02(models.Model):
     f27 = dbarray.CharArrayField(max_length=50)
     # Observaciones y/o Programa Academico para C/A
     f30 = models.CharField(max_length=50)
+
+
+# Model for the 125-A form
+# We went for abbreviations of the field names
+# since this form isn't numbered
+class A125(models.Model):
+
+    def __unicode__(self):
+        return self.date_filled
+
+    date_filled = models.DateField(null=False)
+    professor = models.ForeignKey(User)
+
+    name = models.CharField(max_length=50, null=True)
+    ssn = models.IntegerField(max_length=9, null=True)
+    title = models.CharField(max_length=1, null=True)
+    base_salary = models.FloatField(null=True)
+    period = models.CharField(max_length=1, null=True)
+    effective_date = models.DateField(null=True)
+    multi_campus = models.BooleanField()
+
+    # Modulo 5
+    sponsored_accounts = dbarray.CharArrayField(max_length=50, null=True)
+    # Modulo 5
+    cost_sharing = dbarray.CharArrayField(max_length=50, null=True)
+    # Modulo 5
+    university_funds = dbarray.CharArrayField(max_length=50, null=True)
+    # Only 2 entries
+    total_compensation = dbarray.CharArrayField(max_length=50, null=True)
+    # Modulo 3
+    payments_paid = dbarray.CharArrayField(max_length=50, null=True)
+
+    comments = models.TextField(null=True)
