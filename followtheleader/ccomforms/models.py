@@ -102,14 +102,14 @@ class T02(models.Model):
     f30 = models.CharField(max_length=50)
     objects = ExpressionManager()
 
+    def __unicode__(self):
+        return u'%s %s: %s' % (self.professor.first_name, self.professor.last_name, self.date_filled)
+
 
 # Model for the 125-A form
 # We went for abbreviations of the field names
 # since this form isn't numbered
 class A125(models.Model):
-
-    def __unicode__(self):
-        return self.date_filled
 
     date_filled = models.DateField(null=False)
     professor = models.ForeignKey(User)
@@ -135,3 +135,6 @@ class A125(models.Model):
 
     comments = models.TextField(null=True)
     objects = ExpressionManager()
+
+    def __unicode__(self):
+        return u'%s %s: %s' % (self.professor.first_name, self.professor.last_name, self.date_filled)
