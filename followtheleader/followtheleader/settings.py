@@ -12,15 +12,16 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd587p367n89slk',
-        'USER': 'ekgembattbygkh',
-        'PASSWORD': '2liAtE0WE7ceNEVblUTahMPUX2',
-        'HOST': 'ec2-54-225-105-169.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'd226g5okuo5rb3',
+    'HOST': 'ec2-54-225-105-169.compute-1.amazonaws.com',
+    'PORT': '5432',
+    'USER': 'exlhwdkeceotoc',
+    'PASSWORD': '6PDTOec4lyMRou8PvvkJZs5FPV'
+  }
 }
+
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
