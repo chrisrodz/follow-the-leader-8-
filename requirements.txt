@@ -1,7 +1,10 @@
 Django==1.5.1
+PyPDF2==1.15
 South==0.7.6
+django-dbarray==0.0.1
 djorm-ext-core==0.4.1
 djorm-ext-expressions==0.4.3
 djorm-ext-pgarray==0.4.2
 psycopg2==2.5
+reportlab==2.7
 wsgiref==0.1.2

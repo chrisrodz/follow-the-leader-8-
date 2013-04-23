@@ -3,13 +3,14 @@ import StringIO
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 import json
+import os
 
 class t02(object):
   
   def __init__(self):
     pass
     
-  def buildPDF(self, data):
+  def buildPDF(self, data, document_root):
     data = json.loads(data)[0]['fields']
     content = StringIO.StringIO()
     parser = canvas.Canvas(content, pagesize=letter)
@@ -44,11 +45,13 @@ class t02(object):
     parser.save()
     content.seek(0)
     text = PdfFileReader(content)
-    form = PdfFileReader(file('./forms/t02.pdf', 'rb')).getPage(0)
+
+    form = PdfFileReader(document_root+'/t02.pdf').getPage(0)
     output = PdfFileWriter()
     form.mergePage(text.getPage(0))
     output.addPage(form)
-    outputStream = file('t02-gen.pdf', 'wb')
+    
+    outputStream = open(document_root+'/t02-gen.pdf', 'wb')
     output.write(outputStream)
     self.form = output
     

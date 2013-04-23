@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from djorm_pgarray.fields import ArrayField
 from djorm_expressions.models import ExpressionManager
+from django.core import serializers
 
 # Model for the T02 form
 # We decided to name our fields based on the
@@ -104,6 +105,7 @@ class T02(models.Model):
 
     def __unicode__(self):
         return u'%s %s: %s' % (self.professor.first_name, self.professor.last_name, self.date_filled)
+
 
 
 # Model for the 125-A form
