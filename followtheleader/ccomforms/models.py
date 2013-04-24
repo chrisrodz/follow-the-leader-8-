@@ -149,40 +149,34 @@ saber como hacer el clean
 class T02Form(ModelForm):
     class Meta:
         model = T02
-    
-    def clean_f10(self):
-        return self.cleaned_data['f10'].split(',')
-    def clean_f11(self):
-        return self.cleaned_data['f11'].split(',')
-    def clean_f12(self):
-        return self.cleaned_data['f12'].split(',')
-    def clean_f13(self):
-        return self.cleaned_data['f13'].split(',')
-    def clean_f14(self):
-        return self.cleaned_data['f14'].split(',')
-    def clean_f15(self):
-        return self.cleaned_data['f15'].split(',')
-    def clean_f16(self):
-        return self.cleaned_data['f16'].split(',')
-    def clean_f17(self):
-        return self.cleaned_data['f17'].split(',')
-    def clean_f18(self):
-        return self.cleaned_data['f18'].split(',')
-    def clean_f19(self):
-        data = self.cleaned_data['f19'].split(',')
-        return [int(x) for x in data]
-    def clean_f20(self):
-        data = self.cleaned_data['f20'].split(',')
-        return [float(x) for x in data]
-    def clean_f21(self):
-        return self.cleaned_data['f21'].split(',')
-    def clean_f23(self):
-        return self.cleaned_data['f23'].split(',')
-    def clean_f27(self):
-        return self.cleaned_data['f27'].split(',')
+
+    # Magic function that fixes how ArrayFields are displayed
+    def fix_instance(self):
+        self.initial['f10'] = ",".join([str(x) for x in self.initial['f10']])
+        self.initial['f11'] = ",".join([str(x) for x in self.initial['f11']])
+        self.initial['f12'] = ",".join([str(x) for x in self.initial['f12']])
+        self.initial['f13'] = ",".join([str(x) for x in self.initial['f13']])
+        self.initial['f14'] = ",".join([str(x) for x in self.initial['f14']])
+        self.initial['f15'] = ",".join([str(x) for x in self.initial['f15']])
+        self.initial['f16'] = ",".join([str(x) for x in self.initial['f16']])
+        self.initial['f17'] = ",".join([str(x) for x in self.initial['f17']])
+        self.initial['f18'] = ",".join([str(x) for x in self.initial['f18']])
+        self.initial['f19'] = ",".join([str(x) for x in self.initial['f19']])
+        self.initial['f20'] = ",".join([str(x) for x in self.initial['f20']])
+        self.initial['f21'] = ",".join([str(x) for x in self.initial['f21']])
+        self.initial['f23'] = ",".join([str(x) for x in self.initial['f23']])
+        self.initial['f27'] = ",".join([str(x) for x in self.initial['f27']])
 
 
 class A125Form(ModelForm):
     class Meta:
         model = A125
-    
+
+    # Magic function that fixes how ArrayFields are displayed
+    def fix_instance(self):
+        self.initial['sponsored_accounts'] = ",".join([str(x) for x in self.initial['sponsored_accounts']])
+        self.initial['cost_sharing'] = ",".join([str(x) for x in self.initial['cost_sharing']])
+        self.initial['university_funds'] = ",".join([str(x) for x in self.initial['university_funds']])
+        self.initial['total_compensation'] = ",".join([str(x) for x in self.initial['total_compensation']])
+        self.initial['payments_paid'] = ",".join([str(x) for x in self.initial['payments_paid']])
+

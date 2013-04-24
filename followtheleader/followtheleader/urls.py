@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
-from django.conf.urls.defaults import *
+# from django.conf.urls.defaults import *
 import settings
 
 urlpatterns = patterns('',
