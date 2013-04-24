@@ -167,6 +167,37 @@ class T02Form(ModelForm):
         self.initial['f23'] = ",".join([str(x) for x in self.initial['f23']])
         self.initial['f27'] = ",".join([str(x) for x in self.initial['f27']])
 
+    def clean_f10(self):
+        return self.cleaned_data['f10'].split(',')
+    def clean_f11(self):
+        return self.cleaned_data['f11'].split(',')
+    def clean_f12(self):
+        return self.cleaned_data['f12'].split(',')
+    def clean_f13(self):
+        return self.cleaned_data['f13'].split(',')
+    def clean_f14(self):
+        return self.cleaned_data['f14'].split(',')
+    def clean_f15(self):
+        return self.cleaned_data['f15'].split(',')
+    def clean_f16(self):
+        return self.cleaned_data['f16'].split(',')
+    def clean_f17(self):
+        return self.cleaned_data['f17'].split(',')
+    def clean_f18(self):
+        return self.cleaned_data['f18'].split(',')
+    def clean_f19(self):
+        data = self.cleaned_data['f19'].split(',')
+        return [int(x) for x in data]
+    def clean_f20(self):
+        data = self.cleaned_data['f20'].split(',')
+        return [float(x) for x in data]
+    def clean_f21(self):
+        return self.cleaned_data['f21'].split(',')
+    def clean_f23(self):
+        return self.cleaned_data['f23'].split(',')
+    def clean_f27(self):
+        return self.cleaned_data['f27'].split(',')
+
 
 class A125Form(ModelForm):
     class Meta:
