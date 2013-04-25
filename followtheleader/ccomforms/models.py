@@ -155,12 +155,12 @@ class T02Form(forms.ModelForm):
     f16_1 = forms.CharField(max_length=100)
     f17_1 = forms.CharField(max_length=100)
     f18_1 = forms.CharField(max_length=100)
-    f19_1 = forms.CharField(max_length=100)
-    f20_1 = forms.CharField(max_length=100)
-    f20_2 = forms.CharField(max_length=100)
-    f20_3 = forms.CharField(max_length=100)
-    f20_4 = forms.CharField(max_length=100)
-    f20_5 = forms.CharField(max_length=100)
+    f19_1 = forms.IntegerField()
+    f20_1 = forms.FloatField()
+    f20_2 = forms.FloatField()
+    f20_3 = forms.FloatField()
+    f20_4 = forms.FloatField()
+    f20_5 = forms.FloatField()
     f21_1 = forms.CharField(max_length=100)
     f21_2 = forms.CharField(max_length=100)
     f21_3 = forms.CharField(max_length=100)
@@ -284,37 +284,6 @@ class T02Form(forms.ModelForm):
         self.cleaned_data['f27'] = [self.cleaned_data['f27'],self.cleaned_data['f27_1'],self.cleaned_data['f27_2'],self.cleaned_data['f27_3']]
 
         return self.cleaned_data
-
-    # def clean_f10(self):
-    #     return self.cleaned_data['f10'].split(',')
-    # def clean_f11(self):
-    #     return self.cleaned_data['f11'].split(',')
-    # def clean_f12(self):
-    #     return self.cleaned_data['f12'].split(',')
-    # def clean_f13(self):
-    #     return self.cleaned_data['f13'].split(',')
-    # def clean_f14(self):
-    #     return self.cleaned_data['f14'].split(',')
-    # def clean_f15(self):
-    #     return self.cleaned_data['f15'].split(',')
-    # def clean_f16(self):
-    #     return self.cleaned_data['f16'].split(',')
-    # def clean_f17(self):
-    #     return self.cleaned_data['f17'].split(',')
-    # def clean_f18(self):
-    #     return self.cleaned_data['f18'].split(',')
-    # def clean_f19(self):
-    #     data = self.cleaned_data['f19'].split(',')
-    #     return [int(x) for x in data]
-    # def clean_f20(self):
-    #     data = self.cleaned_data['f20'].split(',')
-    #     return [float(x) for x in data]
-    # def clean_f21(self):
-    #     return self.cleaned_data['f21'].split(',')
-    # def clean_f23(self):
-    #     return self.cleaned_data['f23'].split(',')
-    # def clean_f27(self):
-    #     return self.cleaned_data['f27'].split(',')
 
 
 class A125Form(forms.ModelForm):

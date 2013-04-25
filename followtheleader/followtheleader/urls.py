@@ -1,7 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
-# from django.conf.urls.defaults import *
 import settings
 
 urlpatterns = patterns('',
@@ -11,4 +10,8 @@ urlpatterns = patterns('',
     url(r'^createpdf/$','ccomforms.views.createpdf', {'document_root': settings.MEDIA_ROOT,}),
     url(r'^pdfform/$','ccomforms.views.pdfform'),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+    url(r'^profile/$','ccomforms.views.profile'),
+    url(r'^newT02/$','ccomforms.views.newT02'),
+    url(r'^newA125/$','ccomforms.views.newA125'),
+
 )
