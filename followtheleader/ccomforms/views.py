@@ -8,8 +8,8 @@ from django.template import RequestContext
 def createpdf(request, document_root):
 	data = serializers.serialize('json',T02.objects.filter(id=1))
 	generator = t02()
-	generator.buildPDF(data, document_root)
-	return HttpResponseRedirect('/')
+	return generator.buildPDF(data, document_root)
+	# return HttpResponseRedirect('/')
 
 def pdfform(request):
 	me = T02.objects.get(id=1)

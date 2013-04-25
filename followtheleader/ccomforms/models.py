@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from djorm_pgarray.fields import ArrayField
 from djorm_expressions.models import ExpressionManager
-from django.forms import ModelForm
+from django import forms
 
 # Model for the T02 form
 # We decided to name our fields based on the
@@ -142,64 +142,182 @@ class A125(models.Model):
         return u'%s %s: %s' % (self.professor.first_name, self.professor.last_name, self.date_filled)
 
 '''
-Modify the clean() method so it will fix the Arrays
-Hay que ver como va a ser el user input para entonces
-saber como hacer el clean
+Add temporary form fields for each element in model array fields.
 '''
-class T02Form(ModelForm):
+class T02Form(forms.ModelForm):
+
+    f10_1 = forms.CharField(max_length=100)
+    f11_1 = forms.CharField(max_length=100)
+    f12_1 = forms.CharField(max_length=100)
+    f13_1 = forms.CharField(max_length=100)
+    f14_1 = forms.CharField(max_length=100)
+    f15_1 = forms.CharField(max_length=100)
+    f16_1 = forms.CharField(max_length=100)
+    f17_1 = forms.CharField(max_length=100)
+    f18_1 = forms.CharField(max_length=100)
+    f19_1 = forms.CharField(max_length=100)
+    f20_1 = forms.CharField(max_length=100)
+    f20_2 = forms.CharField(max_length=100)
+    f20_3 = forms.CharField(max_length=100)
+    f20_4 = forms.CharField(max_length=100)
+    f20_5 = forms.CharField(max_length=100)
+    f21_1 = forms.CharField(max_length=100)
+    f21_2 = forms.CharField(max_length=100)
+    f21_3 = forms.CharField(max_length=100)
+    f21_4 = forms.CharField(max_length=100)
+    f21_5 = forms.CharField(max_length=100)
+    f21_6 = forms.CharField(max_length=100)
+    f21_7 = forms.CharField(max_length=100)
+    f21_8 = forms.CharField(max_length=100)
+    f21_9 = forms.CharField(max_length=100)
+    f21_10 = forms.CharField(max_length=100)
+    f23_1 = forms.CharField(max_length=100)
+    f27_1 = forms.CharField(max_length=100)
+    f27_2 = forms.CharField(max_length=100)
+    f27_3 = forms.CharField(max_length=100)
+
     class Meta:
         model = T02
 
-    # Magic function that fixes how ArrayFields are displayed
+    # Magic function that displays ArrayFields as separate input boxes
     def fix_instance(self):
-        self.initial['f10'] = ",".join([str(x) for x in self.initial['f10']])
-        self.initial['f11'] = ",".join([str(x) for x in self.initial['f11']])
-        self.initial['f12'] = ",".join([str(x) for x in self.initial['f12']])
-        self.initial['f13'] = ",".join([str(x) for x in self.initial['f13']])
-        self.initial['f14'] = ",".join([str(x) for x in self.initial['f14']])
-        self.initial['f15'] = ",".join([str(x) for x in self.initial['f15']])
-        self.initial['f16'] = ",".join([str(x) for x in self.initial['f16']])
-        self.initial['f17'] = ",".join([str(x) for x in self.initial['f17']])
-        self.initial['f18'] = ",".join([str(x) for x in self.initial['f18']])
-        self.initial['f19'] = ",".join([str(x) for x in self.initial['f19']])
-        self.initial['f20'] = ",".join([str(x) for x in self.initial['f20']])
-        self.initial['f21'] = ",".join([str(x) for x in self.initial['f21']])
-        self.initial['f23'] = ",".join([str(x) for x in self.initial['f23']])
-        self.initial['f27'] = ",".join([str(x) for x in self.initial['f27']])
+        data10 = ",".join([str(x) for x in self.initial['f10']])
+        data10 = data10.split(',')
+        self.initial['f10'] = data10[0]
+        self.initial['f10_1'] = data10[1]
 
-    def clean_f10(self):
-        return self.cleaned_data['f10'].split(',')
-    def clean_f11(self):
-        return self.cleaned_data['f11'].split(',')
-    def clean_f12(self):
-        return self.cleaned_data['f12'].split(',')
-    def clean_f13(self):
-        return self.cleaned_data['f13'].split(',')
-    def clean_f14(self):
-        return self.cleaned_data['f14'].split(',')
-    def clean_f15(self):
-        return self.cleaned_data['f15'].split(',')
-    def clean_f16(self):
-        return self.cleaned_data['f16'].split(',')
-    def clean_f17(self):
-        return self.cleaned_data['f17'].split(',')
-    def clean_f18(self):
-        return self.cleaned_data['f18'].split(',')
-    def clean_f19(self):
-        data = self.cleaned_data['f19'].split(',')
-        return [int(x) for x in data]
-    def clean_f20(self):
-        data = self.cleaned_data['f20'].split(',')
-        return [float(x) for x in data]
-    def clean_f21(self):
-        return self.cleaned_data['f21'].split(',')
-    def clean_f23(self):
-        return self.cleaned_data['f23'].split(',')
-    def clean_f27(self):
-        return self.cleaned_data['f27'].split(',')
+        data11 = ",".join([str(x) for x in self.initial['f11']])
+        data11 = data11.split(',')
+        self.initial['f11'] = data11[0]
+        self.initial['f11_1'] = data11[1]
+
+        data12 = ",".join([str(x) for x in self.initial['f12']])
+        data12 = data12.split(',')
+        self.initial['f12'] = data12[0]
+        self.initial['f12_1'] = data12[1]
+
+        data13 = ",".join([str(x) for x in self.initial['f13']])
+        data13 = data13.split(',')
+        self.initial['f13'] = data13[0]
+        self.initial['f13_1'] = data13[1]
+
+        data14 = ",".join([str(x) for x in self.initial['f14']])
+        data14 = data14.split(',')
+        self.initial['f14'] = data14[0]
+        self.initial['f14_1'] = data14[1]
+
+        data15 = ",".join([str(x) for x in self.initial['f15']])
+        data15 = data15.split(',')
+        self.initial['f15'] = data15[0]
+        self.initial['f15_1'] = data15[1]
+
+        data16 = ",".join([str(x) for x in self.initial['f16']])
+        data16 = data16.split(',')
+        self.initial['f16'] = data16[0]
+        self.initial['f16_1'] = data16[1]
+
+        data17 = ",".join([str(x) for x in self.initial['f17']])
+        data17 = data17.split(',')
+        self.initial['f17'] = data17[0]
+        self.initial['f17_1'] = data17[1]
+
+        data18 = ",".join([str(x) for x in self.initial['f18']])
+        data18 = data18.split(',')
+        self.initial['f18'] = data18[0]
+        self.initial['f18_1'] = data18[1]
+
+        data19 = ",".join([str(x) for x in self.initial['f19']])
+        data19 = data19.split(',')
+        self.initial['f19'] = data19[0]
+        self.initial['f19_1'] = data19[1]
+
+        data20 = ",".join([str(x) for x in self.initial['f20']])
+        data20 = data20.split(',')
+        self.initial['f20'] = data20[0]
+        self.initial['f20_1'] = data20[1]
+        self.initial['f20_2'] = data20[2]
+        self.initial['f20_3'] = data20[3]
+        self.initial['f20_4'] = data20[4]
+        self.initial['f20_5'] = data20[5]
+
+        data21 = ",".join([str(x) for x in self.initial['f21']])
+        data21 = data21.split(',')
+        self.initial['f21'] = data21[0]
+        self.initial['f21_1'] = data21[1]
+        self.initial['f21_2'] = data21[2]
+        self.initial['f21_3'] = data21[3]
+        self.initial['f21_4'] = data21[4]
+        self.initial['f21_5'] = data21[5]
+        self.initial['f21_6'] = data21[6]
+        self.initial['f21_7'] = data21[7]
+        self.initial['f21_8'] = data21[8]
+        self.initial['f21_9'] = data21[9]
+        self.initial['f21_10'] = data21[10]
+
+        data23 = ",".join([str(x) for x in self.initial['f23']])
+        data23 = data23.split(',')
+        self.initial['f23'] = data23[0]
+        self.initial['f23_1'] = data23[1]
+
+        data27 = ",".join([str(x) for x in self.initial['f27']])
+        data27 = data27.split(',')
+        self.initial['f27'] = data27[0]
+        self.initial['f27_1'] = data27[1]
+        self.initial['f27_2'] = data27[2]
+        self.initial['f27_3'] = data27[3]
+
+    # I use clean to group the array data into one input variable
+    def clean(self):
+        self.cleaned_data['f10'] = [self.cleaned_data['f10'],self.cleaned_data['f10_1']]
+        self.cleaned_data['f11'] = [self.cleaned_data['f11'],self.cleaned_data['f11_1']]
+        self.cleaned_data['f12'] = [self.cleaned_data['f12'],self.cleaned_data['f12_1']]
+        self.cleaned_data['f13'] = [self.cleaned_data['f13'],self.cleaned_data['f13_1']]
+        self.cleaned_data['f14'] = [self.cleaned_data['f14'],self.cleaned_data['f14_1']]
+        self.cleaned_data['f15'] = [self.cleaned_data['f15'],self.cleaned_data['f15_1']]
+        self.cleaned_data['f16'] = [self.cleaned_data['f16'],self.cleaned_data['f16_1']]
+        self.cleaned_data['f17'] = [self.cleaned_data['f17'],self.cleaned_data['f17_1']]
+        self.cleaned_data['f18'] = [self.cleaned_data['f18'],self.cleaned_data['f18_1']]
+        self.cleaned_data['f19'] = [self.cleaned_data['f19'],self.cleaned_data['f19_1']]
+        self.cleaned_data['f20'] = [self.cleaned_data['f20'],self.cleaned_data['f20_1'],self.cleaned_data['f20_2'],self.cleaned_data['f20_3'],self.cleaned_data['f20_4'],self.cleaned_data['f20_5']]
+        self.cleaned_data['f21'] = [self.cleaned_data['f21'],self.cleaned_data['f21_1'],self.cleaned_data['f21_2'],self.cleaned_data['f21_3'],self.cleaned_data['f21_4'],self.cleaned_data['f21_5'],self.cleaned_data['f21_6'],self.cleaned_data['f21_7'],self.cleaned_data['f21_8'],self.cleaned_data['f21_9'],self.cleaned_data['f21_10']]
+        self.cleaned_data['f23'] = [self.cleaned_data['f23'],self.cleaned_data['f23_1']]
+        self.cleaned_data['f27'] = [self.cleaned_data['f27'],self.cleaned_data['f27_1'],self.cleaned_data['f27_2'],self.cleaned_data['f27_3']]
+
+        return self.cleaned_data
+
+    # def clean_f10(self):
+    #     return self.cleaned_data['f10'].split(',')
+    # def clean_f11(self):
+    #     return self.cleaned_data['f11'].split(',')
+    # def clean_f12(self):
+    #     return self.cleaned_data['f12'].split(',')
+    # def clean_f13(self):
+    #     return self.cleaned_data['f13'].split(',')
+    # def clean_f14(self):
+    #     return self.cleaned_data['f14'].split(',')
+    # def clean_f15(self):
+    #     return self.cleaned_data['f15'].split(',')
+    # def clean_f16(self):
+    #     return self.cleaned_data['f16'].split(',')
+    # def clean_f17(self):
+    #     return self.cleaned_data['f17'].split(',')
+    # def clean_f18(self):
+    #     return self.cleaned_data['f18'].split(',')
+    # def clean_f19(self):
+    #     data = self.cleaned_data['f19'].split(',')
+    #     return [int(x) for x in data]
+    # def clean_f20(self):
+    #     data = self.cleaned_data['f20'].split(',')
+    #     return [float(x) for x in data]
+    # def clean_f21(self):
+    #     return self.cleaned_data['f21'].split(',')
+    # def clean_f23(self):
+    #     return self.cleaned_data['f23'].split(',')
+    # def clean_f27(self):
+    #     return self.cleaned_data['f27'].split(',')
 
 
-class A125Form(ModelForm):
+class A125Form(forms.ModelForm):
     class Meta:
         model = A125
 
