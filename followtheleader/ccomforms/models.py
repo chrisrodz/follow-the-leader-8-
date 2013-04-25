@@ -121,6 +121,7 @@ class A125(models.Model):
     title = models.CharField(max_length=1, null=True)
     base_salary = models.FloatField(null=True)
     period = models.CharField(max_length=1, null=True)
+    period_year = models.CharField(max_length=4, null=True)
     effective_date = models.DateField(null=True)
     multi_campus = models.BooleanField()
 
@@ -287,14 +288,250 @@ class T02Form(forms.ModelForm):
 
 
 class A125Form(forms.ModelForm):
+
+    sponsored_accounts_1 = forms.CharField(max_length=100)
+    sponsored_accounts_2 = forms.CharField(max_length=100)
+    sponsored_accounts_3 = forms.CharField(max_length=100)
+    sponsored_accounts_4 = forms.CharField(max_length=100)
+    sponsored_accounts_5 = forms.CharField(max_length=100)
+    sponsored_accounts_6 = forms.CharField(max_length=100)
+    sponsored_accounts_7 = forms.CharField(max_length=100)
+    sponsored_accounts_8 = forms.CharField(max_length=100)
+    sponsored_accounts_9 = forms.CharField(max_length=100)
+    sponsored_accounts_10 = forms.CharField(max_length=100)
+    sponsored_accounts_11 = forms.CharField(max_length=100)
+    sponsored_accounts_12 = forms.CharField(max_length=100)
+    sponsored_accounts_13 = forms.CharField(max_length=100)
+    sponsored_accounts_14 = forms.CharField(max_length=100)
+    sponsored_accounts_15 = forms.CharField(max_length=100)
+    sponsored_accounts_16 = forms.CharField(max_length=100)
+    sponsored_accounts_17 = forms.CharField(max_length=100)
+    sponsored_accounts_18 = forms.CharField(max_length=100)
+    sponsored_accounts_19 = forms.CharField(max_length=100)
+
+    cost_sharing_1 = forms.CharField(max_length=100)
+    cost_sharing_2 = forms.CharField(max_length=100)
+    cost_sharing_3 = forms.CharField(max_length=100)
+    cost_sharing_4 = forms.CharField(max_length=100)
+    cost_sharing_5 = forms.CharField(max_length=100)
+    cost_sharing_6 = forms.CharField(max_length=100)
+    cost_sharing_7 = forms.CharField(max_length=100)
+    cost_sharing_8 = forms.CharField(max_length=100)
+    cost_sharing_9 = forms.CharField(max_length=100)
+    cost_sharing_10 = forms.CharField(max_length=100)
+    cost_sharing_11 = forms.CharField(max_length=100)
+    cost_sharing_12 = forms.CharField(max_length=100)
+    cost_sharing_13 = forms.CharField(max_length=100)
+    cost_sharing_14 = forms.CharField(max_length=100)
+
+    university_funds_1 = forms.CharField(max_length=100)
+    university_funds_2 = forms.CharField(max_length=100)
+    university_funds_3 = forms.CharField(max_length=100)
+    university_funds_4 = forms.CharField(max_length=100)
+    university_funds_5 = forms.CharField(max_length=100)
+    university_funds_6 = forms.CharField(max_length=100)
+    university_funds_7 = forms.CharField(max_length=100)
+    university_funds_8 = forms.CharField(max_length=100)
+    university_funds_9 = forms.CharField(max_length=100)
+    university_funds_10 = forms.CharField(max_length=100)
+    university_funds_11 = forms.CharField(max_length=100)
+    university_funds_12 = forms.CharField(max_length=100)
+    university_funds_13 = forms.CharField(max_length=100)
+    university_funds_14 = forms.CharField(max_length=100)
+    university_funds_15 = forms.CharField(max_length=100)
+    university_funds_16 = forms.CharField(max_length=100)
+    university_funds_17 = forms.CharField(max_length=100)
+    university_funds_18 = forms.CharField(max_length=100)
+    university_funds_19 = forms.CharField(max_length=100)
+    university_funds_20 = forms.CharField(max_length=100)
+    university_funds_21 = forms.CharField(max_length=100)
+    university_funds_22 = forms.CharField(max_length=100)
+    university_funds_23 = forms.CharField(max_length=100)
+    university_funds_24 = forms.CharField(max_length=100)
+
+    total_compensation_1 = forms.CharField(max_length=100)
+
+    payments_paid_1 = forms.CharField(max_length=100)
+    payments_paid_2 = forms.CharField(max_length=100)
+    payments_paid_3 = forms.CharField(max_length=100)
+    payments_paid_4 = forms.CharField(max_length=100)
+    payments_paid_5 = forms.CharField(max_length=100)
+    payments_paid_6 = forms.CharField(max_length=100)
+    payments_paid_7 = forms.CharField(max_length=100)
+    payments_paid_8 = forms.CharField(max_length=100)
+
     class Meta:
         model = A125
 
     # Magic function that fixes how ArrayFields are displayed
     def fix_instance(self):
-        self.initial['sponsored_accounts'] = ",".join([str(x) for x in self.initial['sponsored_accounts']])
-        self.initial['cost_sharing'] = ",".join([str(x) for x in self.initial['cost_sharing']])
-        self.initial['university_funds'] = ",".join([str(x) for x in self.initial['university_funds']])
-        self.initial['total_compensation'] = ",".join([str(x) for x in self.initial['total_compensation']])
-        self.initial['payments_paid'] = ",".join([str(x) for x in self.initial['payments_paid']])
+        sponsored = ",".join([str(x) for x in self.initial['sponsored_accounts']])
+        sponsored = sponsored.split(',')
+        self.initial['sponsored_accounts'] = sponsored[0]
+        self.initial['sponsored_accounts_1'] = sponsored[1]
+        self.initial['sponsored_accounts_2'] = sponsored[2]
+        self.initial['sponsored_accounts_3'] = sponsored[3]
+        self.initial['sponsored_accounts_4'] = sponsored[4]
+        self.initial['sponsored_accounts_5'] = sponsored[5]
+        self.initial['sponsored_accounts_6'] = sponsored[6]
+        self.initial['sponsored_accounts_7'] = sponsored[7]
+        self.initial['sponsored_accounts_8'] = sponsored[8]
+        self.initial['sponsored_accounts_9'] = sponsored[9]
+        self.initial['sponsored_accounts_10'] = sponsored[10]
+        self.initial['sponsored_accounts_11'] = sponsored[11]
+        self.initial['sponsored_accounts_12'] = sponsored[12]
+        self.initial['sponsored_accounts_13'] = sponsored[13]
+        self.initial['sponsored_accounts_14'] = sponsored[14]
+        self.initial['sponsored_accounts_15'] = sponsored[15]
+        self.initial['sponsored_accounts_16'] = sponsored[16]
+        self.initial['sponsored_accounts_17'] = sponsored[17]
+        self.initial['sponsored_accounts_18'] = sponsored[18]
+        self.initial['sponsored_accounts_19'] = sponsored[19]
+
+        cost_sharing = ",".join([str(x) for x in self.initial['cost_sharing']])
+        cost_sharing = cost_sharing.split(',')
+        self.initial['cost_sharing'] = cost_sharing[0]
+        self.initial['cost_sharing_1'] = cost_sharing[1]
+        self.initial['cost_sharing_2'] = cost_sharing[2]
+        self.initial['cost_sharing_3'] = cost_sharing[3]
+        self.initial['cost_sharing_4'] = cost_sharing[4]
+        self.initial['cost_sharing_5'] = cost_sharing[5]
+        self.initial['cost_sharing_6'] = cost_sharing[6]
+        self.initial['cost_sharing_7'] = cost_sharing[7]
+        self.initial['cost_sharing_8'] = cost_sharing[8]
+        self.initial['cost_sharing_9'] = cost_sharing[9]
+        self.initial['cost_sharing_10'] = cost_sharing[10]
+        self.initial['cost_sharing_11'] = cost_sharing[11]
+        self.initial['cost_sharing_12'] = cost_sharing[12]
+        self.initial['cost_sharing_13'] = cost_sharing[13]
+        self.initial['cost_sharing_14'] = cost_sharing[14]
+
+        university = ",".join([str(x) for x in self.initial['university_funds']])
+        university = university.split(',')
+        self.initial['university_funds'] = university[0]
+        self.initial['university_funds_1'] = university[1]
+        self.initial['university_funds_2'] = university[2]
+        self.initial['university_funds_3'] = university[3]
+        self.initial['university_funds_4'] = university[4]
+        self.initial['university_funds_5'] = university[5]
+        self.initial['university_funds_6'] = university[6]
+        self.initial['university_funds_7'] = university[7]
+        self.initial['university_funds_8'] = university[8]
+        self.initial['university_funds_9'] = university[9]
+        self.initial['university_funds_10'] = university[10]
+        self.initial['university_funds_11'] = university[11]
+        self.initial['university_funds_12'] = university[12]
+        self.initial['university_funds_13'] = university[13]
+        self.initial['university_funds_14'] = university[14]
+        self.initial['university_funds_15'] = university[15]
+        self.initial['university_funds_16'] = university[16]
+        self.initial['university_funds_17'] = university[17]
+        self.initial['university_funds_18'] = university[18]
+        self.initial['university_funds_19'] = university[19]
+        self.initial['university_funds_20'] = university[20]
+        self.initial['university_funds_21'] = university[21]
+        self.initial['university_funds_22'] = university[22]
+        self.initial['university_funds_23'] = university[23]
+        self.initial['university_funds_24'] = university[24]
+
+        compensation = ",".join([str(x) for x in self.initial['total_compensation']])
+        compensation = compensation.split(',')
+        self.initial['total_compensation'] = compensation[0]
+        self.initial['total_compensation_1'] = compensation[1]
+
+        payments = ",".join([str(x) for x in self.initial['payments_paid']])
+        payments = payments.split(',')
+        self.initial['payments_paid'] = payments[0]
+        self.initial['payments_paid_1'] = payments[1]
+        self.initial['payments_paid_2'] = payments[2]
+        self.initial['payments_paid_3'] = payments[3]
+        self.initial['payments_paid_4'] = payments[4]
+        self.initial['payments_paid_5'] = payments[5]
+        self.initial['payments_paid_6'] = payments[6]
+        self.initial['payments_paid_7'] = payments[7]
+        self.initial['payments_paid_8'] = payments[8]
+
+    def clean(self):
+        self.cleaned_data['sponsored_accounts'] = [self.cleaned_data['sponsored_accounts']
+        ,self.cleaned_data['sponsored_accounts_1']
+        ,self.cleaned_data['sponsored_accounts_2']
+        ,self.cleaned_data['sponsored_accounts_3']
+        ,self.cleaned_data['sponsored_accounts_4']
+        ,self.cleaned_data['sponsored_accounts_5']
+        ,self.cleaned_data['sponsored_accounts_6']
+        ,self.cleaned_data['sponsored_accounts_7']
+        ,self.cleaned_data['sponsored_accounts_8']
+        ,self.cleaned_data['sponsored_accounts_9']
+        ,self.cleaned_data['sponsored_accounts_10']
+        ,self.cleaned_data['sponsored_accounts_11']
+        ,self.cleaned_data['sponsored_accounts_12']
+        ,self.cleaned_data['sponsored_accounts_13']
+        ,self.cleaned_data['sponsored_accounts_14']
+        ,self.cleaned_data['sponsored_accounts_15']
+        ,self.cleaned_data['sponsored_accounts_16']
+        ,self.cleaned_data['sponsored_accounts_17']
+        ,self.cleaned_data['sponsored_accounts_18']
+        ,self.cleaned_data['sponsored_accounts_19']]
+        
+        self.cleaned_data['cost_sharing'] = [self.cleaned_data['cost_sharing']
+        ,self.cleaned_data['cost_sharing_1']
+        ,self.cleaned_data['cost_sharing_2']
+        ,self.cleaned_data['cost_sharing_3']
+        ,self.cleaned_data['cost_sharing_4']
+        ,self.cleaned_data['cost_sharing_5']
+        ,self.cleaned_data['cost_sharing_6']
+        ,self.cleaned_data['cost_sharing_7']
+        ,self.cleaned_data['cost_sharing_8']
+        ,self.cleaned_data['cost_sharing_9']
+        ,self.cleaned_data['cost_sharing_10']
+        ,self.cleaned_data['cost_sharing_11']
+        ,self.cleaned_data['cost_sharing_12']
+        ,self.cleaned_data['cost_sharing_13']
+        ,self.cleaned_data['cost_sharing_14']]
+
+        self.cleaned_data['university_funds'] = [self.cleaned_data['university_funds']
+        ,self.cleaned_data['university_funds_1']
+        ,self.cleaned_data['university_funds_2']
+        ,self.cleaned_data['university_funds_3']
+        ,self.cleaned_data['university_funds_4']
+        ,self.cleaned_data['university_funds_5']
+        ,self.cleaned_data['university_funds_6']
+        ,self.cleaned_data['university_funds_7']
+        ,self.cleaned_data['university_funds_8']
+        ,self.cleaned_data['university_funds_9']
+        ,self.cleaned_data['university_funds_10']
+        ,self.cleaned_data['university_funds_11']
+        ,self.cleaned_data['university_funds_12']
+        ,self.cleaned_data['university_funds_13']
+        ,self.cleaned_data['university_funds_14']
+        ,self.cleaned_data['university_funds_15']
+        ,self.cleaned_data['university_funds_16']
+        ,self.cleaned_data['university_funds_17']
+        ,self.cleaned_data['university_funds_18']
+        ,self.cleaned_data['university_funds_19']
+        ,self.cleaned_data['university_funds_20']
+        ,self.cleaned_data['university_funds_21']
+        ,self.cleaned_data['university_funds_22']
+        ,self.cleaned_data['university_funds_23']
+        ,self.cleaned_data['university_funds_24']]
+
+        self.cleaned_data['total_compensation'] = [self.cleaned_data['total_compensation']
+        ,self.cleaned_data['total_compensation_1']]
+
+        self.cleaned_data['payments_paid'] = [self.cleaned_data['payments_paid']
+        ,self.cleaned_data['payments_paid_1']
+        ,self.cleaned_data['payments_paid_2']
+        ,self.cleaned_data['payments_paid_3']
+        ,self.cleaned_data['payments_paid_4']
+        ,self.cleaned_data['payments_paid_5']
+        ,self.cleaned_data['payments_paid_6']
+        ,self.cleaned_data['payments_paid_7']
+        ,self.cleaned_data['payments_paid_8']]
+
+        return self.cleaned_data
+
+
+
+
+
 
