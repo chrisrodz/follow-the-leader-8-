@@ -144,6 +144,8 @@ class A125(models.Model):
 
 '''
 Add temporary form fields for each element in model array fields.
+Render the array fields as separate input fields in the html.
+Join these separate input fields before the form saves itself.
 '''
 class T02Form(forms.ModelForm):
 
@@ -286,6 +288,11 @@ class T02Form(forms.ModelForm):
 
         return self.cleaned_data
 
+'''
+Add temporary form fields for each element in model array fields.
+Render the array fields as separate input fields in the html.
+Join these separate input fields before the form saves itself.
+'''
 
 class A125Form(forms.ModelForm):
 
@@ -529,9 +536,4 @@ class A125Form(forms.ModelForm):
         ,self.cleaned_data['payments_paid_8']]
 
         return self.cleaned_data
-
-
-
-
-
 

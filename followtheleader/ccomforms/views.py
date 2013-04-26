@@ -6,12 +6,12 @@ from t02 import t02
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 
-
-def createpdf(request, document_root):
-	data = serializers.serialize('json',T02.objects.filter(id=1))
+# Tengo que pasar el objeto del form a esta funcion desde el profile, on click y ya se acaba el mambo :)
+def createpdf(request, document_root, obj):
+	data = serializers.serialize('json',T02.objects.filter(id=obj))
 	generator = t02()
-	return generator.buildPDF(data, document_root)
-	# return HttpResponseRedirect('/')
+	generator.buildPDF(data, document_root)
+	return HttpResponseRedirect('/media/t02-gen.pdf')
 
 @login_required
 def pdfform(request):
