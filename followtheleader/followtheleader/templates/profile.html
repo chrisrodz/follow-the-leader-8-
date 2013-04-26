@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<a href="{% url 'ccomforms.views.newT02' %}">Click here for a new T02</a> <br>
+	<a href="{% url 'ccomforms.views.newA125' %}">Click here for a new A-125</a> <br>
+	<a href="{% url 'django.contrib.auth.views.logout' %}">Click here to logout!</a>
+	<h3>Your filled out T02s:</h3>
+	<ul>
+		{% for form in t02s %}
+			<li><a href="{% url 'ccomforms.views.createpdf' obj=form.id %}">{{ form }}</a></li>
+		{% endfor %}
+	</ul>
+	<h3>Your filled out A125s:</h3>
+	<ul>
+		{% for form in a125s %}
+			<li><p>{{ form }}</p></li>
+		{% endfor %}
+	</ul>
+{% endblock content %}

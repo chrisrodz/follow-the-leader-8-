@@ -6,7 +6,6 @@
 		<p>Error!</p>
 	{% endif %}
 
-
 	<div id="login_wrapp" >
 		<div id="login_sub_wrapp" >
 		    <h1 style="text-align:center; opacity:.7;">Please enter your login information</h1>
@@ -17,9 +16,8 @@
 					<table id="tabla" style="width: 750px;">
 					{{ form.as_table }}
 					</table>
-					<a id="register" href="#">Register</a>
 					<input id="submit" type='submit' value='Login'>
-					<input type="hidden" name="next" value="/admin">
+					<input type="hidden" name="next" value="/profile">
 				</form>
 			</div>
 		</div>
@@ -35,6 +33,4 @@
         ModifyPlaceHolder ();
     </script>
 
-
-	
 {% endblock content %}
