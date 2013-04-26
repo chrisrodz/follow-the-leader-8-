@@ -1,8 +1,10 @@
 import json
-from t02 import t02
+from a125 import a125
 
-data = '[{"pk": 1, "model": "ccomforms.t02", "fields": {"f1": "Christian Rodr\\u00edguez", "f2": 801116705, "f3": "Nombramiento?", "f5": 200.0, "f6": "Sacar A en DB", "f8": "2013-04-21", "f9": "2013-04-21", "Transaccion": "Cambio", "f23": ["yes", "tumaieslagorda"], "f22": true, "f21": ["a", "s", "d", "f", "g", "h", "a", "s", "d", "f", "g"], "f20": [12.0, 13.0, 12.0, 41.0, 45.0, 23.0], "date_filled": "2013-04-21", "f26": "Naturales", "f25": false, "f24": false, "f27": ["1", "arrivederci", "2", "bogiorno"], "Ano_Fiscal": 2012, "Num_Referencia": 1234, "professor": 1, "f30": "Espero que salga bien", "f18": ["TEst2", "test3"], "f19": [0, 1], "f12": ["TEst2", "test3"], "f13": ["TEst2", "test3"], "f10": ["TEst2", "test3"], "f11": ["TEst2", "test3"], "f16": ["TEst2", "test3"], "f17": ["TEst2", "test3"], "f14": ["TEst2", "test3"], "f15": ["TEst2", "test3"]}}]'
+data = '[{"pk": 1, "model": "ccomforms.a125", "fields": {"name": "Christian Rodriguez", "title": "2", "professor": 1, "base_salary": 100000.0, "period": "2", "comments": "Yamil dale duro a esta mierda pa poder salir ya de esta clase", "payments_paid": ["\'809-534-232\'", "\'Darle duro a las clases y sacar A\'", "\'100", "000\'", "\'809-534-232\'", "\'Darle duro a las clases y sacar A\'", "\'100", "000\'", "\'809-534-232\'"], "total_compensation": ["\'Un monton\'", "\'Millones\'"], "ssn": 801116705, "date_filled": "2013-04-25", "period_year": "2012", "cost_sharing": ["\'Rio Piedras\'", "\'520-234-234\'", "\'Yo no se lo que va aqui\'", "\'100\'", "\'1000\'", "\'Rio Piedras\'", "\'520-234-234\'", "\'Yo no se lo que va aqui\'", "\'100\'", "\'1000\'", "\'Rio Piedras\'", "\'520-234-234\'", "\'Yo no se lo que va aqui\'", "\'100\'", "\'1000\'"], "effective_date": "2013-04-25", "multi_campus": false, "sponsored_accounts": ["\'Rio Piedras\'", "\'520-234-234\'", "\'Yo no se lo que va aqui\'", "\'100\'", "\'1000\'", "\'Rio Piedras\'", "\'520-234-234\'", "\'Yo no se lo que va aqui\'", "\'100\'", "\'1000\'", "\'Rio Piedras\'", "\'520-234-234\'", "\'Yo no se lo que va aqui\'", "\'100\'", "\'1000\'", "\'Rio Piedras\'", "\'520-234-234\'", "\'Yo no se lo que va aqui\'", "\'100\'", "\'1000\'"], "university_funds": ["\'Rio Piedras\'", "\'520-234-234\'", "\'Yo no se lo que va aqui\'", "\'100\'", "\'1000\'", "\'Rio Piedras\'", "\'520-234-234\'", "\'Yo no se lo que va aqui\'", "\'100\'", "\'1000\'", "\'Rio Piedras\'", "\'520-234-234\'", "\'Yo no se lo que va aqui\'", "\'100\'", "\'1000\'", "\'Rio Piedras\'", "\'520-234-234\'", "\'Yo no se lo que va aqui\'", "\'100\'", "\'1000\'", "\'Rio Piedras\'", "\'520-234-234\'", "\'Yo no se lo que va aqui\'", "\'100\'", "\'1000\'"]}}]'
 
 
-generator = t02()
+
+
+generator = a125()
 generator.buildPDF(data)
