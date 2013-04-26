@@ -3,15 +3,22 @@ from django.core import serializers
 from django.shortcuts import render_to_response
 from ccomforms.models import T02, T02Form, A125, A125Form
 from t02 import t02
+from a125 import a125
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 
-# Tengo que pasar el objeto del form a esta funcion desde el profile, on click y ya se acaba el mambo :)
-def createpdf(request, document_root, obj):
+
+def createt02(request, document_root, obj):
 	data = serializers.serialize('json',T02.objects.filter(id=obj))
 	generator = t02()
 	generator.buildPDF(data, document_root)
 	return HttpResponseRedirect('/media/t02-gen.pdf')
+
+def createa125(request, document_root, obj):
+	data = serializers.serialize('json',A125.objects.filter(id=obj))
+	generator = a125()
+	generator.buildPDF(data, document_root)
+	return HttpResponseRedirect('/media/a125-gen.pdf')
 
 @login_required
 def pdfform(request):
