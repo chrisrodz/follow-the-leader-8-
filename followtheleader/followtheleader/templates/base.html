@@ -1,9 +1,153 @@
 <html>
 <head>
 	<title> CCOM Forms </title>
+
+	<style type="text/css">
+		
+		body{
+
+			background-color: gray;
+			padding:0px;
+			margin: 0px;
+			width: 100%;
+		}
+
+		#TopBar{
+
+			height: 50px;
+			background-color: rgb(63,88,252);
+			-moz-box-shadow: 0 3px 14px 0 #000;
+			-webkit-box-shadow: 0 3px 14px 0 #000;
+			box-shadow: 0 3px 14px 0 #000;
+		}
+					
+
+		label{
+
+			width: 0px;
+		}
+
+		#tabla th{
+
+		    text-align: left;
+		    width: 31px;
+		    padding-top: 5px;
+		    padding-bottom: 5px;
+		}
+
+		#tabla label{
+
+    		font-size: 32;
+    		opacity:.7;
+		}
+
+		#tabla td{
+
+		    width: 75%;
+		    height: 35px;
+		    padding-top: 5px;
+		    padding-bottom: 5px;
+		}
+
+		#tabla input{
+
+			width: 95%;
+			height: 35px;
+			font-size: 20;
+		}
+
+		#title{
+
+			letter-spacing: -6px;
+			text-transform: lowercase;
+			font-size: 100px;
+			text-align: center;
+			padding-bottom: 0px;
+			margin-bottom: 8px;
+			margin-top: 20px;
+			font-family: 'Oxygen', sans-serif;
+			font-weight: 300;
+		}
+
+		#slogan{
+
+			margin-top: -20px;
+			padding: 0px 0px 0px 5px;
+			font-size: 20px;
+			font-weight: 300;
+			color: rgb(40, 19, 87);
+			text-align: center;
+			margin-bottom: 45px;
+		}
+
+		#submit{
+
+			float: right;
+			margin-right: 15px;
+			margin-top: 30px;
+			width: 100px;
+		}
+
+		#register{
+
+			float: right;
+			margin-top: 30px;
+			width: 100px;
+		}
+
+		#login_wrapp{
+
+			display: -webkit-box; 
+			display: -moz-box; display: box;
+ 
+			-webkit-box-orient: vertical;
+			-moz-box-orient: vertical;
+			-ms-box-orient: vertical;
+			box-orient: vertical;
+			-webkit-box-align: center;
+			-moz-box-align: center;
+			-ms-box-align: center;
+			box-align: center;
+		}
+
+		#login_sub_wrapp{
+
+			width: 800px; 
+			height: 300px; 
+			background-color: white; 
+			border-radius: 20px;
+		    -moz-box-shadow: 0 12px 14px 1px #000; 
+		    -webkit-box-shadow: 0 12px 14px 1px #000; 
+		    box-shadow: 0 12px 14px 1px #000;
+
+		    display: -webkit-box; 
+		    display: -moz-box; display: box;
+ 
+			-webkit-box-orient: vertical;
+			-moz-box-orient: vertical;
+			-ms-box-orient: vertical;
+			box-orient: vertical;
+			-webkit-box-align: center;
+			-moz-box-align: center;
+			-ms-box-align: center;
+			box-align: center;
+		}
+
+
+	</style>
 </head>
 <body>
-	<h1>CCOM Forms</h1>
+	
+	
+	<div id="TopBar">
+		
+	</div>
+
+	<h1 id="title" >CCOM Forms</h1>
+	<p id="slogan" >Forms made easy</p>
+
+	
+	
 	{% block content %}
 	Aqui va el contenido
 	{% endblock content %}

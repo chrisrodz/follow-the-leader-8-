@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+<p>Que este el submit disabled hasta que todos los fields esten llenos</p>
+
+{% block content %}
+	<form action="" method='post'>
+		{% csrf_token %}
+		{% for field in form %}
+	    	<div class="fieldWrapper">
+	    		<div id='{{ field.name }}'>
+	        	{{ field.errors }}
+	        	{{ field.label_tag }}: {{ field }}
+	        	</div>
+	    	</div>
+		{% endfor %}
+		<input type='submit' value='Submit'>
+	</form>
+{% endblock content %}
