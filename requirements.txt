@@ -7,3 +7,4 @@ djorm-ext-pgarray==0.4.2
 psycopg2==2.5
 reportlab==2.7
 wsgiref==0.1.2
+gunicorn==0.17.4
