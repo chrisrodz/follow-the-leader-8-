@@ -4,6 +4,28 @@ from djorm_pgarray.fields import ArrayField
 from djorm_expressions.models import ExpressionManager
 from django import forms
 
+# Model for Professor's Profile.
+# This data will be used for generating the forms.
+class Profile(models.Model):
+
+    # Primary key is User model
+    professor = models.OneToOneField(User, primary_key=True)
+
+    # Faculty the professor pertains to f11
+    Facultad = models.CharField(max_length=50)
+    # Numero de Plaza of the professor f12
+    NumPlaza = models.IntegerField()
+    # Title of the Professor f14
+    Titulo_Rango = models.CharField(max_length=50)
+    # Scale rate f18
+    Escala_Rate = models.CharField(max_length=50)
+    # Total salary f19
+    SueldoTotal = models.FloatField()
+
+    def __unicode__(self):
+        return u'%s %s profile' % self.professor.first_name, self.professor.last_name
+
+
 # Model for the T02 form
 # We decided to name our fields based on the
 # numbers on the form itself.
@@ -26,6 +48,8 @@ class T02(models.Model):
     f5 = models.FloatField()
     # Proposito (P16)
     f6 = models.CharField(max_length=50)
+    # Preparacion Academica mas alta
+    f7 = models.CharField(default='Ph.D', max_length=10)
     # Fecha de Efectividad
     f8 = models.DateField()
     # Fecha de terminacion
@@ -141,6 +165,15 @@ class A125(models.Model):
 
     def __unicode__(self):
         return u'%s %s: %s' % (self.professor.first_name, self.professor.last_name, self.date_filled)
+
+'''
+Model Form for the Professor's Profile
+'''
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+
 
 '''
 Add temporary form fields for each element in model array fields.

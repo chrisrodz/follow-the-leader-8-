@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core import serializers
 from django.shortcuts import render_to_response
-from ccomforms.models import T02, T02Form, A125, A125Form
+from ccomforms.models import T02, T02Form, A125, A125Form, Profile, ProfileForm
 from t02 import t02
 from a125 import a125
 from django.template import RequestContext
@@ -38,6 +38,20 @@ def profile(request):
 	t02s = T02.objects.filter(professor=request.user)
 	a125s = A125.objects.filter(professor=request.user)
 	return render_to_response('profile.html', {'t02s': t02s, 'a125s': a125s})
+
+@login_required
+def editprofile(request):
+	current = Profile.objects.get(professor=request.user)
+	if request.method == 'POST':
+		form = ProfileForm(request.POST, instance=current)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/profile')
+		else:
+			return render_to_response('editprofile.html', {'form': form}, context_instance=RequestContext(request))
+	else:
+		form = ProfileForm(instance=current)
+		return render_to_response('editprofile.html', {'form': form}, context_instance=RequestContext(request))
 
 @login_required
 def newT02(request):
