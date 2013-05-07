@@ -1,7 +1,8 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core import serializers
 from django.shortcuts import render_to_response
-from ccomforms.models import T02, T02Form, A125, A125Form, Profile, ProfileForm
+from ccomforms.models import T02, A125, Profile
+from ccomforms.forms import T02Form, A125Form, ProfileForm
 from t02 import t02
 from a125 import a125
 from django.template import RequestContext
