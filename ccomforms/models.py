@@ -3,8 +3,10 @@ from django.contrib.auth.models import User
 from djorm_pgarray.fields import ArrayField
 from djorm_expressions.models import ExpressionManager
 
-# Model for Professor's Profile.
-# This data will be used for generating the forms.
+'''
+Model for Professor's Profile.
+This data will be used for generating the forms.
+'''
 class Profile(models.Model):
 
     # Primary key is User model
@@ -25,10 +27,12 @@ class Profile(models.Model):
         return u'%s %s profile' % self.professor.first_name, self.professor.last_name
 
 
-# Model for the T02 form
-# We decided to name our fields based on the
-# numbers on the form itself.
-# Ex. The first field in the form is f1.
+'''
+Model for the T02 form
+We decided to name our fields based on the
+numbers on the form itself.
+Ex. The first field in the form is f1.
+'''
 class T02(models.Model):
 
     date_filled = models.DateField(null=False)
@@ -130,10 +134,11 @@ class T02(models.Model):
         return u'%s %s: %s' % (self.professor.first_name, self.professor.last_name, self.date_filled)
 
 
-
-# Model for the 125-A form
-# We went for abbreviations of the field names
-# since this form isn't numbered
+'''
+Model for the 125-A form
+We went for abbreviations of the field names
+since this form isn't numbered
+'''
 class A125(models.Model):
 
     date_filled = models.DateField(null=False)
