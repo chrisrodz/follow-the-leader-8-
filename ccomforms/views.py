@@ -54,7 +54,7 @@ def editprofile(request):
 		return render_to_response('editprofile.html', {'form': form}, context_instance=RequestContext(request))
 
 @login_required
-def newT02(request):
+def newT02(request, formid=None):
 	if request.method == 'POST':
 		form = T02Form(request.POST)
 		if form.is_valid():
@@ -63,11 +63,16 @@ def newT02(request):
 		else:
 			return render_to_response('newform.html', {'form': form}, context_instance=RequestContext(request))
 	else:
-		form = T02Form()
+		if formid:
+			old = T02.objects.get(id=formid)
+			form = T02Form(initial={'professor': old.professor, 'Num_Referencia': old.Num_Referencia, 'Transaccion': old.Transaccion, 'f1': old.f1, 'f2': old.f2, 'f3': old.f3, 'f5': old.f5, 'f6': old.f6, 'f7': old.f7, 'f8': old.f8, 'f9': old.f9, 'f10': old.f10, 'f11': old.f11, 'f12': old.f12, 'f13': old.f13, 'f14': old.f14, 'f15': old.f15, 'f16': old.f16, 'f17': old.f17, 'f18': old.f18, 'f19': old.f19, 'f20': old.f20, 'f21': old.f21, 'f22': old.f22, 'f23': old.f23, 'f24': old.f24, 'f25': old.f25, 'f26': old.f26, 'f27': old.f27, 'f30': old.f30})
+			form.fix_instance()
+		else:
+			form = T02Form()	
 		return render_to_response('newform.html', {'form': form}, context_instance=RequestContext(request))
 
 @login_required
-def newA125(request):
+def newA125(request, formid=None):
 	if request.method == 'POST':
 		form = A125Form(request.POST)
 		if form.is_valid():
@@ -76,5 +81,11 @@ def newA125(request):
 		else:
 			return render_to_response('newform.html', {'form': form}, context_instance=RequestContext(request))
 	else:
-		form = A125Form()
+		if formid:
+			old = A125.objects.get(id=formid)
+			form = A125Form(initial={'professor': old.professor, 'name': old.name, 'ssn': old.ssn, 'title': old.title, 'base_salary': old.base_salary, 'period': old.period, 'period_year': old.period_year, 'effective_date': old.effective_date, 'multi_campus': old.multi_campus, 'sponsored_accounts': old.sponsored_accounts, 'cost_sharing': old.cost_sharing, 'university_funds': old.university_funds, 'total_compensation': old.total_compensation, 'payments_paid': old.payments_paid, 'comments': old.comments})
+			form.fix_instance()
+		else:
+			form = A125Form()	
 		return render_to_response('newform.html', {'form': form}, context_instance=RequestContext(request))
+

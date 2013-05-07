@@ -7,13 +7,19 @@
 	<h3>Your filled out T02s:</h3>
 	<ul>
 		{% for form in t02s %}
-			<li><a href="{% url 'ccomforms.views.createt02' obj=form.id %}">{{ form }}</a></li>
+			<li>
+				<a href="{% url 'ccomforms.views.createt02' obj=form.id %}">{{ form }}</a> <br>
+				<a href="{% url 'ccomforms.views.newT02' form.id %}">New T02 based on this one</a>
+			</li>
 		{% endfor %}
 	</ul>
 	<h3>Your filled out A125s:</h3>
 	<ul>
 		{% for form in a125s %}
-			<li><a href="{% url 'ccomforms.views.createa125' obj=form.id %}">{{ form }}</a></li>
+			<li>
+				<a href="{% url 'ccomforms.views.createa125' obj=form.id %}">{{ form }}</a> <br>
+				<a href="{% url 'ccomforms.views.newA125' form.id %}">New A125 based on this one</a>
+			</li>
 		{% endfor %}
 	</ul>
 {% endblock content %}
