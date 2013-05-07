@@ -72,6 +72,31 @@
 			</tr>
 		</table>
 		
+		<table id="history" >	
+			<tr>
+				<td>
+					
+					<h2>Your filled out T02s:</h2>
+						<ul align="center">
+							{% for form in t02s %}
+								<li>
+									<a href="{% url 'ccomforms.views.createt02' obj=form.id %}">{{ form }}</a> <br>
+									<a href="{% url 'ccomforms.views.newT02' form.id %}">New T02 based on this one</a>
+								</li>
+							{% endfor %}
+						</ul>
+						<h2>Your filled out A125s:</h2>
+						<ul align="center">
+							{% for form in a125s %}
+								<li>
+									<a href="{% url 'ccomforms.views.createa125' obj=form.id %}">{{ form }}</a> <br>
+									<a href="{% url 'ccomforms.views.newA125' form.id %}">New A125 based on this one</a>
+								</li>
+							{% endfor %}
+						</ul>
+				</td>	
+			</tr>	
+		</table>
 
 	</div>
 

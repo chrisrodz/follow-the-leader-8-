@@ -1,4 +1,4 @@
-<html>
+<html> 
 <head>
 	<title> CCOM Forms </title>
 
@@ -12,6 +12,12 @@
 			width: 100%;
 		}
 
+		#body {
+
+			min-height: 100%;
+			max-height: 100%;
+		}
+
 		#TopBar{
 
 			height: 50px;
@@ -19,6 +25,7 @@
 			-moz-box-shadow: 0 3px 14px 0 #000;
 			-webkit-box-shadow: 0 3px 14px 0 #000;
 			box-shadow: 0 3px 14px 0 #000;
+
 		}
 					
 
@@ -56,7 +63,7 @@
 			font-size: 20;
 		}
 
-		#title{
+		#banner{
 
 			letter-spacing: -6px;
 			text-transform: lowercase;
@@ -108,12 +115,16 @@
 			-moz-box-align: center;
 			-ms-box-align: center;
 			box-align: center;
+
+			width: 100%;
 		}
 
 		#login_sub_wrapp{
 
 			width: 800px; 
 			height: 300px; 
+			margin-left: auto;
+			margin-right: auto;
 			background-color: white; 
 			border-radius: 20px;
 		    -moz-box-shadow: 0 12px 14px 1px #000; 
@@ -133,23 +144,314 @@
 			box-align: center;
 		}
 
+		#main_wrapper{
+
+			width: 90%;
+			height: 162px;
+			margin-right: auto;
+			margin-left: auto;
+			padding-left: 15px;
+		}
+
+		#nav{
+			width: 100%;
+			height: 50px;
+			z-index: 500;
+			padding:0px;
+		}
+
+		#nav li {
+		    margin:5px;
+		    margin-bottom: 0px;
+		    float:left;
+		    position:relative;
+		    list-style:none;
+		}
+
+		#nav a{
+
+			text-decoration:none;
+
+		    display:block;
+
+		    padding:0px 10px;
+		    font-size: 20px;
+		    color: white;
+		    opacity: .8;
+		}
+
+		#nav li a:hover{
+
+			opacity: 1;
+
+		}
+
+		#nav li:hover > ul {
+		    opacity:1;
+		    visibility:visible;
+		}
+		#nav ul {
+		    opacity:0;
+		    visibility:hidden;
+		    padding:0;
+		    width:175px;
+		    position:absolute;
+		    margin: 0px;
+		    padding: 0px;
+		    padding-top: 15px;
+		}
+
+		#nav ul li {
+		    float:none;
+		    margin:0;
+		}
+
+		#new_t02{
+
+			background-color: rgb(63,88,252);
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			border-left: 2px solid white;
+			border-right: 2px solid white;
+			border-top: 2px solid white;
+		}
+
+		#new_A125{
+
+			background-color: rgb(63,88,252);
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+			border-left: 2px solid white;
+			border-right: 2px solid white;
+			border-bottom: 2px solid white;
+		}
+
+		#box{
+
+			padding: 2em 0;
+			background: #FF4E00;
+			border-top: 5px solid #FF6C2B;
+			color: #FFF;
+			width: 365px;
+			float: left;
+			margin:5px;
+
+			-moz-box-shadow: 0 3px 14px 0 #000;
+			-webkit-box-shadow: 0 3px 14px 0 #000;
+			box-shadow: 0 3px 14px 0 #000;
+		}
+
+		#box:hover{
+
+			
+			border-top: 5px solid #FF4105;
+		}
+
+		#box1{
+
+			padding: 2em 0;
+			background: #22B6ED;
+			border-top: 5px solid #5BCBF4;
+			color: #FFF;
+			width: 365px;
+			float: left;
+			margin:5px;
+
+			-moz-box-shadow: 0 3px 14px 0 #000;
+			-webkit-box-shadow: 0 3px 14px 0 #000;
+			box-shadow: 0 3px 14px 0 #000;
+		}
+
+		#box1:hover{
+
+			
+			border-top: 5px solid #4D4DFF;
+		}
+
+		#box2{
+
+			padding: 2em 0;
+			background: #4c933e;
+			border-top: 5px solid #7ab070;
+			color: #FFF;
+			width: 365px;
+			float: left;
+			margin:5px;
+
+			-moz-box-shadow: 0 3px 14px 0 #000;
+			-webkit-box-shadow: 0 3px 14px 0 #000;
+			box-shadow: 0 3px 14px 0 #000;
+		}
+
+		#box2:hover{
+
+			
+			border-top: 5px solid #6FFF00;
+		}
+
+		.content{
+			padding: 1em 2em 0em 2em;
+		}
+
+		.content h2{
+			padding: 0 0 .5em 0;
+			letter-spacing: -.05em;
+			font-size: 2em;
+			font-weight: 200;
+			color: #FFF;
+			line-height: 1.2em;
+		}
+
+		section {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+			display: block;
+			margin-bottom: 2em;
+		}
+
+		h2{
+
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+		}
+
+		p{
+
+			display: block;
+			-webkit-margin-before: 1em;
+			-webkit-margin-after: 1em;
+			-webkit-margin-start: 0px;
+			-webkit-margin-end: 0px;
+		}
+
+		table td{
+			vertical-align: top;
+		}
+
+		.boton{
+
+			display: inline-block;
+			margin-top: 1em;
+			padding: .4em 1em;
+			background: #A0A0A0;s
+			text-decoration: none;
+			text-transform: uppercase;
+			font-weight: 700;
+			font-size: 1em;
+			color: #FFF;
+			text-decoration: none;
+		}
+
+		.pboton{
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+			margin-bottom: 1em;
+			line-height: 1.7em;
+		}
+
+		#main_info{
+
+			width: 90%;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		#marron_thor{
+
+			background-color: white;
+			-moz-box-shadow: 0 3px 14px 0 #000;
+			-webkit-box-shadow: 0 3px 14px 0 #000;
+			box-shadow: 0 3px 14px 0 #000;
+			
+		}
+
+		#history{
+
+			margin-left: auto; 
+			margin-right: auto; 
+			width: 90%; 
+			background-color: white; 
+			border-radius: 5px 5px 5px 5px; 
+
+
+			background-color: white;
+			-moz-box-shadow: 0 3px 14px 0 #000;
+			-webkit-box-shadow: 0 3px 14px 0 #000;
+			box-shadow: 0 3px 14px 0 #000;
+		}
+
+		#history h2{
+
+			padding: 0 0 .5em 0;
+			letter-spacing: -.05em;
+			font-size: 25px;
+			font-weight: 200;
+			color: black;
+			line-height: 1.2em;
+		}
 
 	</style>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+
+	<script type="text/javascript">
+
+		var h = $(window).height();
+
+		$(document).ready(function() {
+			// Handler for .ready() called.
+			$("#core1").hide();
+			$("#core2").hide();
+			$("#core").hide();
+		});
+
+		var count = 0;
+
+		function hide_show(id){
+
+			$(id).toggle('slow', function() {
+				
+
+
+			});
+		}
+
+		
+		
+
+	</script>
 </head>
-<body>
+<body id="body">
 	
 	
 	<div id="TopBar">
-		
+		{% block tabs %}
+
+        {% endblock tabs %}
 	</div>
 
-	<h1 id="title" >CCOM Forms</h1>
+	<h1 id="banner" >CCOM Forms</h1>
 	<p id="slogan" >Forms made easy</p>
 
-	
+	{% block btns %}
+
+    {% endblock btns %}
 	
 	{% block content %}
 	Aqui va el contenido
+
 	{% endblock content %}
 </body>
 </html>

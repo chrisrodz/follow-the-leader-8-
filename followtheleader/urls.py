@@ -18,5 +18,5 @@ urlpatterns = patterns('',
     url(r'^newA125/(\d*)$','ccomforms.views.newA125'),
     url(r'^logout/$','django.contrib.auth.views.logout', {'next_page': '/'}),
     url(r'^editprofile/$','ccomforms.views.editprofile'),
-
+    url(r'^history/$','ccomforms.views.history'),
 )

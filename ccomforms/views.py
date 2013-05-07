@@ -43,6 +43,13 @@ def profile(request):
 	a125s = A125.objects.filter(professor=request.user)
 	return render_to_response('profile.html', {'t02s': t02s, 'a125s': a125s})
 
+# View for rendering the professor's history
+@login_required
+def history(request):
+	t02s = T02.objects.filter(professor=request.user)
+	a125s = A125.objects.filter(professor=request.user)
+	return render_to_response('history.html', {'t02s': t02s, 'a125s': a125s})
+
 # View for editing professor's profile information
 @login_required
 def editprofile(request):

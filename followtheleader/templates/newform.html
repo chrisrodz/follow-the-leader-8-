@@ -2,17 +2,99 @@
 
 <p>Que este el submit disabled hasta que todos los fields esten llenos</p>
 
+{% block tabs %}
+	<div style="float: right; height: 50px;">
+		 <ul id="nav">
+	            <li><a href="{% url 'ccomforms.views.profile' %}">Profile</a>
+	            	<ul>
+	            		<li id="new_t02"><a href="{% url 'ccomforms.views.newT02' %}">New T02</a></li>
+	            		<li id="new_A125"><a href="{% url 'ccomforms.views.newA125' %}">New A-125</a> <br></li>
+	            	</ul>
+	            </li>
+	            <li><a href="{% url 'ccomforms.views.history' %}">History</a></li>
+	            <li><a href="{% url 'django.contrib.auth.views.logout' %}">Logout</a></li>
+	     </ul>
+     </div>
+
+{% endblock tabs %}
+
+{% block btns %}
+ 
+	<div id="main_wrapper">
+		<table style="margin-left:auto; margin-right:auto;">	
+			<tr>
+				<td>
+					<section id="box" onclick="hide_show('#core')" >
+						<div class="content" >
+							<h2>Profile</h2>
+							<div id="core">
+								<p>Profesor's Name</p>
+								<p class="pboton"><a href="{% url 'ccomforms.views.profile' %}" class="boton" style="background-color:#FFF; color:#FF4E00;">Edit Profile</a></p>
+							</div>
+						</div>
+					</section>
+				</td>
+
+				<td>
+					<section id="box1" onclick="hide_show('#core1')">
+						<div class="content">
+							<h2>Fill Forms</h2>
+							<div id="core1" >
+								<p>Actions:</p>
+								<p class="pboton" style="float:left;"><a href="{% url 'ccomforms.views.newT02' %}" class="boton" style="background-color:#FFF; color:#22B6ED;">New T02</a> <br>
+					            <p class="pboton" style="float:left; margin-left:5px;"><a href="{% url 'ccomforms.views.newA125' %}" class="boton" style="background-color:#FFF; color:#22B6ED;">New A-125</a></p> <br>
+					            <div></div>
+				            </div>
+
+						</div>
+					</section>
+				</td>
+
+				<td>
+					<section id="box2" onclick="hide_show('#core2')">
+						<div class="content">
+							<h2>History</h2>
+							<div id="core2" >
+								<p>View:</p>
+								<p class="pboton" style="float:left;" ><a href="{% url 'ccomforms.views.history' %}" class="boton" style="background-color:#FFF; color:#4c933e;">Filled T02s</a> <br>
+					            <p class="pboton" style="float:left; margin-left:5px;" ><a href="{% url 'ccomforms.views.history' %}" class="boton" style="background-color:#FFF; color:#4c933e;">Filled A-125s</a></p> <br>
+					            <div></div>
+							</div>
+						</div>
+					</section>
+				</td>
+			</tr>
+			<tr>
+					<td >
+						<br>
+						<br>
+					</td>
+				</tr>
+		</table>
+
+		<table id="history" >	
+			<tr>
+				<td>
+					<form action="" method='post'>
+						{% csrf_token %}
+						{% for field in form %}
+					    	<div class="fieldWrapper">
+					    		<div id='{{ field.name }}'>
+					        	{{ field.errors }}
+					        	{{ field.label_tag }}: {{ field }}
+					        	</div>
+					    	</div>
+						{% endfor %}
+						<input type='submit' value='Submit'>
+					</form>
+				</td>	
+			</tr>	
+		</table>
+
+	</div>
+
+{% endblock btns %}
+
 {% block content %}
-	<form action="" method='post'>
-		{% csrf_token %}
-		{% for field in form %}
-	    	<div class="fieldWrapper">
-	    		<div id='{{ field.name }}'>
-	        	{{ field.errors }}
-	        	{{ field.label_tag }}: {{ field }}
-	        	</div>
-	    	</div>
-		{% endfor %}
-		<input type='submit' value='Submit'>
-	</form>
+	
 {% endblock content %}
