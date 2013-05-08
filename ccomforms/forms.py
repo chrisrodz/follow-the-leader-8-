@@ -51,6 +51,43 @@ class T02Form(forms.ModelForm):
     class Meta:
         model = T02
 
+    def __init__(self, *args, **kwargs):
+        super(T02Form, self).__init__(*args, **kwargs)
+        self.fields.keyOrder = [
+        'date_filled',
+        'professor',
+        'Ano_Fiscal',
+        'Num_Referencia',
+        'Transaccion',
+        'f1',
+        'f2',
+        'f3',
+        'f5',
+        'f6',
+        'f7',
+        'f8',
+        'f9',
+        'f10','f10_1',
+        'f11','f11_1',
+        'f12','f12_1',
+        'f13','f13_1',
+        'f14','f14_1',
+        'f15','f15_1',
+        'f16','f16_1',
+        'f17','f17_1',
+        'f18','f18_1',
+        'f19','f19_1',
+        'f20','f20_1','f20_2','f20_3','f20_4','f20_5',
+        'f21','f21_1','f21_2','f21_3','f21_4','f21_5','f21_6','f21_7','f21_8','f21_9','f21_10',
+        'f22',
+        'f23','f23_1',
+        'f24',
+        'f25',
+        'f26',
+        'f27','f27_1','f27_2','f27_3',
+        'f30',
+            ]
+
     # Magic function that displays ArrayFields as separate input boxes
     def fix_instance(self):
         data10 = ",".join([str(x) for x in self.initial['f10']])
@@ -238,6 +275,27 @@ class A125Form(forms.ModelForm):
 
     class Meta:
         model = A125
+
+    def __init__(self, *args, **kwargs):
+        super(A125Form, self).__init__(*args, **kwargs)
+        self.fields.keyOrder = [
+        'date_filled',
+        'professor',
+        'name',
+        'ssn',
+        'title',
+        'base_salary',
+        'period',
+        'period_year',
+        'effective_date',
+        'multi_campus',
+        'sponsored_accounts','sponsored_accounts_1','sponsored_accounts_2','sponsored_accounts_3','sponsored_accounts_4','sponsored_accounts_5','sponsored_accounts_6','sponsored_accounts_7','sponsored_accounts_8','sponsored_accounts_9','sponsored_accounts_10','sponsored_accounts_11','sponsored_accounts_12','sponsored_accounts_13','sponsored_accounts_14','sponsored_accounts_15','sponsored_accounts_16','sponsored_accounts_17','sponsored_accounts_18','sponsored_accounts_19',
+        'cost_sharing','cost_sharing_1','cost_sharing_2','cost_sharing_3','cost_sharing_4','cost_sharing_5','cost_sharing_6','cost_sharing_7','cost_sharing_8','cost_sharing_9','cost_sharing_10','cost_sharing_11','cost_sharing_12','cost_sharing_13','cost_sharing_14',
+        'university_funds','university_funds_1','university_funds_2','university_funds_3','university_funds_4','university_funds_5','university_funds_6','university_funds_7','university_funds_8','university_funds_9','university_funds_10','university_funds_11','university_funds_12','university_funds_13','university_funds_14','university_funds_15','university_funds_16','university_funds_17','university_funds_18','university_funds_19','university_funds_20','university_funds_21','university_funds_22','university_funds_23','university_funds_24',
+        'total_compensation','total_compensation_1',
+        'payments_paid','payments_paid_1','payments_paid_2','payments_paid_3','payments_paid_4','payments_paid_5','payments_paid_8',
+        'comments',
+        ]
 
     # Magic function that fixes how ArrayFields are displayed
     def fix_instance(self):
