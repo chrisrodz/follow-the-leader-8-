@@ -54,16 +54,28 @@ def history(request):
 @login_required
 def editprofile(request):
 	current = Profile.objects.get(professor=request.user)
-	if request.method == 'POST':
-		form = ProfileForm(request.POST, instance=current)
-		if form.is_valid():
-			form.save()
-			return HttpResponseRedirect('/profile')
+	if current:
+		if request.method == 'POST':
+			form = ProfileForm(request.POST, instance=current)
+			if form.is_valid():
+				form.save()
+				return HttpResponseRedirect('/profile')
+			else:
+				return render_to_response('editprofile.html', {'form': form}, context_instance=RequestContext(request))
 		else:
+			form = ProfileForm(instance=current)
 			return render_to_response('editprofile.html', {'form': form}, context_instance=RequestContext(request))
 	else:
-		form = ProfileForm(instance=current)
-		return render_to_response('editprofile.html', {'form': form}, context_instance=RequestContext(request))
+		if request.method == 'POST':
+			form = ProfileForm(request.POST)
+			if form.is_valid():
+				form.save()
+				return HttpResponseRedirect('/profile')
+			else:
+				return render_to_response('editprofile.html', {'form': form}, context_instance=RequestContext(request))
+		else:
+			form = ProfileForm()
+			return render_to_response('editprofile.html', {'form': form}, context_instance=RequestContext(request))
 
 # View for creating a new T02 form and saving it into the database
 @login_required

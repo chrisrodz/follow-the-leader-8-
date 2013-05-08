@@ -24,7 +24,7 @@ class Profile(models.Model):
     SueldoTotal = models.FloatField()
 
     def __unicode__(self):
-        return u'%s %s profile' % self.professor.first_name, self.professor.last_name
+        return u"%s's profile" % self.professor.first_name
 
 
 '''

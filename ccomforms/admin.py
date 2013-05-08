@@ -1,5 +1,5 @@
-# from django.contrib import admin
-# from ccomforms.models import T02, A125, T02Form
+from django.contrib import admin
+from ccomforms.models import Profile
 
 # class T02Admin(admin.ModelAdmin):
 # 	form = T02Form
@@ -7,3 +7,4 @@
 
 # admin.site.register(T02, T02Admin)
 # admin.site.register(A125)
+admin.site.register(Profile)
