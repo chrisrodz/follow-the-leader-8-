@@ -10,36 +10,6 @@ $(document).ready(function() {
 	$("#core2").hide();
 
 	$("#core").hide();
-
-});
-
-var count = 0;
-
-function hide_show(id){
-
-	$(id).toggle('slow', function() {
-
-		
-
-	});
-
-}
-
-
-function ModifyPlaceHolder () {
-
-    var input = document.getElementById ("id_username");
-
-    input.placeholder = "Enter your username";
-
-    var input1 = document.getElementById ("id_password");
-
-    input1.placeholder = "Enter your password";
-
-}
-
-ModifyPlaceHolder ();
-
 			$('label[for="id_f1"]').html("Nombre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
 			$('label[for="id_f2"]').html("Seguro Social&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
 			$('label[for="id_f3"]').html("Transaccion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
@@ -178,3 +148,32 @@ ModifyPlaceHolder ();
 			$('label[for="id_payments_paid_4"]').html("Type of work &nbsp;&nbsp;");
 			$('label[for="id_payments_paid_5"]').html("Amount Paid&nbsp;&nbsp;");
 			$('label[for="id_payments_paid_8"]').html("Payments Paid- Account Number&nbsp;&nbsp;");
+
+});
+
+var count = 0;
+
+function hide_show(id){
+
+	$(id).toggle('slow', function() {
+
+		
+
+	});
+
+}
+
+
+function ModifyPlaceHolder () {
+
+    var input = document.getElementById ("id_username");
+
+    input.placeholder = "Enter your username";
+
+    var input1 = document.getElementById ("id_password");
+
+    input1.placeholder = "Enter your password";
+
+}
+
+ModifyPlaceHolder ();
