@@ -19,4 +19,5 @@ urlpatterns = patterns('',
     url(r'^logout/$','django.contrib.auth.views.logout', {'next_page': '/'}),
     url(r'^editprofile/$','ccomforms.views.editprofile'),
     url(r'^history/$','ccomforms.views.history'),
+    url(r'^static/(.*)', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 )

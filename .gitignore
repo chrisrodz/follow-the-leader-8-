@@ -4,3 +4,4 @@
 local_settings.py
 env/
 .DS_Store
+dev.sqlite3
