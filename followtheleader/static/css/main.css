@@ -32,6 +32,12 @@
 			margin-right: 5px;
 		}		
 
+		#Facultad, #Titulo_Rango, #Escala_Rate, #SueldoTotal{
+
+			float:left;
+			margin-right: 5px;
+		}
+
 
 		label{
 
