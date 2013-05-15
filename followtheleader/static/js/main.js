@@ -149,8 +149,19 @@ $(document).ready(function() {
 			$('label[for="id_payments_paid_5"]').html("Amount Paid&nbsp;&nbsp;");
 			$('label[for="id_payments_paid_8"]').html("Payments Paid- Account Number&nbsp;&nbsp;");
 
-});
+			$('label[for="id_Facultad"]').html("Facultad &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+			$('label[for="id_NumPlaza"]').html("NumPlaza &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+			$('label[for="id_Titulo_Rango"]').html("Titulo Rango&nbsp");
+			$('label[for="id_Escala_Rate"]').html("Escala Rate&nbsp&nbsp&nbsp");
+			$('label[for="id_SueldoTotal"]').html("Sueldo Total&nbsp&nbsp");
 
+			$('label[for="id_professor"]').html("Professor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+			$('label[for="id_Facultad_1"]').html("Facultad &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+			$('label[for="id_NumPlaza_1"]').html("NumPlaza &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+			$('label[for="id_Titulo_Rango_1"]').html("Titulo Rango&nbsp;&nbsp");
+			$('label[for="id_Escala_Rate_1"]').html("Escala Rate&nbsp&nbsp&nbsp;&nbsp;&nbsp");
+			$('label[for="id_SueldoTotal_1"]').html("Sueldo Total&nbsp;&nbsp;&nbsp&nbsp");
+});
 var count = 0;
 
 function hide_show(id){

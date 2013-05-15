@@ -81,7 +81,7 @@
 					    	<div class="fieldWrapper">
 					    		<div id='{{ field.name }}'>
 					        	{{ field.errors }}
-					        	{{ field.label_tag }}: {{ field }}
+					        	{{ field.label_tag }} {{ field }}
 					        	</div>
 					    	</div>
 						{% endfor %}
@@ -93,9 +93,7 @@
 
 	</div>
 
-	<script type="text/javascript">
-			$('label[for="id_Facultad"]').html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
-	</script>
+	
 
 {% endblock btns %}
 
