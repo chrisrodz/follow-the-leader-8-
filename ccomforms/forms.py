@@ -7,9 +7,66 @@ Model Form for the Professor's Profile
 '''
 
 class ProfileForm(forms.ModelForm):
+
+    Facultad_1 = forms.CharField(max_length=100)
+    NumPlaza_1 = forms.CharField(max_length=100)
+    Titulo_Rango_1 = forms.CharField(max_length=100)
+    Escala_Rate_1 = forms.CharField(max_length=100)
+    SueldoTotal_1 = forms.IntegerField()
+
     class Meta:
         model = Profile
 
+    def __init__(self, *args, **kwargs):
+        super(ProfileForm, self).__init__(*args, **kwargs)
+        self.fields.keyOrder = [
+        'professor',
+        'Facultad',
+        'Facultad_1',
+        'NumPlaza',
+        'NumPlaza_1',
+        'Titulo_Rango',
+        'Titulo_Rango_1',
+        'Escala_Rate',
+        'Escala_Rate_1',
+        'SueldoTotal',
+        'SueldoTotal_1',
+        ]
+
+    def fix_instance(self):
+        data10 = ",".join([str(x) for x in self.initial['Facultad']])
+        data10 = data10.split(',')
+        self.initial['Facultad'] = data10[0]
+        self.initial['Facultad_1'] = data10[1]
+
+        data11 = ",".join([str(x) for x in self.initial['NumPlaza']])
+        data11 = data11.split(',')
+        self.initial['NumPlaza'] = data11[0]
+        self.initial['NumPlaza_1'] = data11[1]
+
+        data12 = ",".join([str(x) for x in self.initial['Titulo_Rango']])
+        data12 = data12.split(',')
+        self.initial['Titulo_Rango'] = data12[0]
+        self.initial['Titulo_Rango_1'] = data12[1]
+
+        data13 = ",".join([str(x) for x in self.initial['Escala_Rate']])
+        data13 = data13.split(',')
+        self.initial['Escala_Rate'] = data13[0]
+        self.initial['Escala_Rate_1'] = data13[1]
+
+        data14 = ",".join([str(x) for x in self.initial['SueldoTotal']])
+        data14 = data14.split(',')
+        self.initial['SueldoTotal'] = data14[0]
+        self.initial['SueldoTotal_1'] = data14[1]
+
+    def clean(self):
+        self.cleaned_data['Facultad'] = [self.cleaned_data['Facultad'],self.cleaned_data['Facultad_1']]
+        self.cleaned_data['NumPlaza'] = [self.cleaned_data['NumPlaza'],self.cleaned_data['NumPlaza_1']]
+        self.cleaned_data['Titulo_Rango'] = [self.cleaned_data['Titulo_Rango'],self.cleaned_data['Titulo_Rango_1']]
+        self.cleaned_data['Escala_Rate'] = [self.cleaned_data['Escala_Rate'],self.cleaned_data['Escala_Rate_1']]
+        self.cleaned_data['SueldoTotal'] = [self.cleaned_data['SueldoTotal'],self.cleaned_data['SueldoTotal_1']]
+
+        return self.cleaned_data
 
 '''
 Add temporary form fields for each element in model array fields.

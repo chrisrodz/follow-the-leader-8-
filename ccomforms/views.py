@@ -64,6 +64,7 @@ def editprofile(request):
 				return render_to_response('editprofile.html', {'form': form}, context_instance=RequestContext(request))
 		else:
 			form = ProfileForm(instance=current[0])
+			form.fix_instance()
 			return render_to_response('editprofile.html', {'form': form}, context_instance=RequestContext(request))
 	else:
 		if request.method == 'POST':
@@ -93,7 +94,8 @@ def newT02(request, formid=None):
 			form = T02Form(initial={'professor': old.professor, 'Num_Referencia': old.Num_Referencia, 'Transaccion': old.Transaccion, 'f1': old.f1, 'f2': old.f2, 'f3': old.f3, 'f5': old.f5, 'f6': old.f6, 'f7': old.f7, 'f8': old.f8, 'f9': old.f9, 'f10': old.f10, 'f11': old.f11, 'f12': old.f12, 'f13': old.f13, 'f14': old.f14, 'f15': old.f15, 'f16': old.f16, 'f17': old.f17, 'f18': old.f18, 'f19': old.f19, 'f20': old.f20, 'f21': old.f21, 'f22': old.f22, 'f23': old.f23, 'f24': old.f24, 'f25': old.f25, 'f26': old.f26, 'f27': old.f27, 'f30': old.f30})
 			form.fix_instance()
 		else:
-			form = T02Form()	
+			profile = Profile.objects.get(professor=request.user)
+			form = T02Form(initial={'f11': profile.Facultad[0], 'f11_1': profile.Facultad[1], 'f12': profile.NumPlaza[0], 'f12_1': profile.NumPlaza[1], 'f14': profile.Titulo_Rango[0], 'f14_1': profile.Titulo_Rango[1], 'f18': profile.Escala_Rate[0], 'f18_1': profile.Escala_Rate[1], 'f19': profile.SueldoTotal[0], 'f19_1': profile.SueldoTotal[1]})	
 		return render_to_response('newform.html', {'form': form}, context_instance=RequestContext(request))
 
 # View for creating a new A125 form and saving it into the database

@@ -13,15 +13,17 @@ class Profile(models.Model):
     professor = models.OneToOneField(User, primary_key=True)
 
     # Faculty the professor pertains to f11
-    Facultad = models.CharField(max_length=50)
+    Facultad = ArrayField(dbtype='text')
     # Numero de Plaza of the professor f12
-    NumPlaza = models.IntegerField()
+    NumPlaza = ArrayField(dbtype='text')
     # Title of the Professor f14
-    Titulo_Rango = models.CharField(max_length=50)
+    Titulo_Rango = ArrayField(dbtype='text')
     # Scale rate f18
-    Escala_Rate = models.CharField(max_length=50)
+    Escala_Rate = ArrayField(dbtype='text')
     # Total salary f19
-    SueldoTotal = models.FloatField()
+    SueldoTotal = ArrayField(dbtype='int')
+
+    objects = ExpressionManager()
 
     def __unicode__(self):
         return u"%s's profile" % self.professor.first_name
